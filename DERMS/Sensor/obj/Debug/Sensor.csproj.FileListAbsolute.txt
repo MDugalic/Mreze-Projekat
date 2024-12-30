@@ -1,0 +1,7 @@
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\Sensor\bin\Debug\Sensor.exe.config
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\Sensor\bin\Debug\Sensor.exe
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\Sensor\bin\Debug\Sensor.pdb
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\Sensor\obj\Debug\Sensor.csproj.AssemblyReference.cache
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\Sensor\obj\Debug\Sensor.csproj.CoreCompileInputs.cache
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\Sensor\obj\Debug\Sensor.exe
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\Sensor\obj\Debug\Sensor.pdb

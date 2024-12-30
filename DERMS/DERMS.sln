@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DERMS Server", "DERMS Server\DERMS Server.csproj", "{8114A13D-57B9-412E-8FD0-BFEBDB354914}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DER Generator", "DER Generator\DER Generator.csproj", "{4A2B63A9-4C6E-4B92-B0F4-8221B49B8F66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sensor", "Sensor\Sensor.csproj", "{B906749D-25D8-4BCC-96DE-38451D3B8743}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8114A13D-57B9-412E-8FD0-BFEBDB354914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8114A13D-57B9-412E-8FD0-BFEBDB354914}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8114A13D-57B9-412E-8FD0-BFEBDB354914}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8114A13D-57B9-412E-8FD0-BFEBDB354914}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A2B63A9-4C6E-4B92-B0F4-8221B49B8F66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A2B63A9-4C6E-4B92-B0F4-8221B49B8F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A2B63A9-4C6E-4B92-B0F4-8221B49B8F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A2B63A9-4C6E-4B92-B0F4-8221B49B8F66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B906749D-25D8-4BCC-96DE-38451D3B8743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B906749D-25D8-4BCC-96DE-38451D3B8743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B906749D-25D8-4BCC-96DE-38451D3B8743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B906749D-25D8-4BCC-96DE-38451D3B8743}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
