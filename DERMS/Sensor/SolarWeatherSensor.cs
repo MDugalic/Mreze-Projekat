@@ -31,7 +31,7 @@ namespace Sensor
                     NetworkStream stream = client.GetStream();
 
                     // Slanje zahteva za proveru tipa generatora
-                    string message = "Check:SolarPanel";
+                    string message = "CheckGeneratorType";
                     byte[] messageBytes = Encoding.UTF8.GetBytes(message);
                     stream.Write(messageBytes, 0, messageBytes.Length);
 
@@ -39,15 +39,20 @@ namespace Sensor
                     byte[] responseBuffer = new byte[1024];
                     int bytesRead = stream.Read(responseBuffer, 0, responseBuffer.Length);
                     string response = Encoding.UTF8.GetString(responseBuffer, 0, bytesRead);
-
-                    if (response == "Connected:SolarPanel")
+                    Console.WriteLine( $"{response} bilo sta");
+                    if (response == "SolarPanel")
                     {
                         Console.WriteLine("Povezano sa solarnim panelom. Počinje slanje podataka...");
                         SimulateAndSendData(stream);
                     }
+                    else if(response == "WindTurbine")
+                    {
+                        Console.WriteLine("Greska: Senzor je povezan sa vetroturbinom.");
+                    }
                     else
                     {
-                        Console.WriteLine($"Greška: {response}");
+                        
+                        Console.WriteLine($"Greška: Nepoznat odgovor. {response}");
                     }
                 }
             }
@@ -60,7 +65,6 @@ namespace Sensor
         private void SimulateAndSendData(NetworkStream stream) 
         {
 
-            Random random = new Random();
             while (true)
             {
                 int hour = DateTime.Now.Hour;
@@ -87,7 +91,7 @@ namespace Sensor
             else if (hour < 12)
                 return 1050 - (12 - hour) * 200;
             else
-                return 1050 - (hour - 14) * 200; ;
+                return 1050 - (hour - 14) * 200; 
         }
 
         private double SimulateTemperature(double insolation)

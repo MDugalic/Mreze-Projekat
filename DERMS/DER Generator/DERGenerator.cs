@@ -85,11 +85,11 @@ namespace DER_Generator
             {
                 _tcpClient = new TcpClient(_serverAddress, _serverPort);
                 Console.WriteLine("Connected with DERM server.");
-
+                //SendPowerDataToServer(125, 0);
                 //Slanje pocetnih podataka serveru
                 string initialMessage = $"{_generatorType}:{_nominalPower}";
                 byte[] messageBytes = Encoding.UTF8.GetBytes(initialMessage);
-                _tcpClient.GetStream().Write(messageBytes, 0, messageBytes.Length);
+                //_tcpClient.GetStream().Write(messageBytes, 0, messageBytes.Length);
                 Console.WriteLine("Initial data sended to server");
             }
             catch (Exception ex) 
@@ -102,11 +102,15 @@ namespace DER_Generator
             try
             {
                 _udpClient = new UdpClient(_localPortUdp);
-                Console.WriteLine($"UDP socket open on port {_localPortUdp} for control message.");
+                string localIP = GetLocalIPAddress();
+                Console.WriteLine("\n[UDP Socket]");
+                Console.WriteLine($"- Control socket opened.");
+                Console.WriteLine($"- Address: {localIP}");
+                Console.WriteLine($"- Port: {_localPortUdp}\n");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Message during opening UDP socket: {ex.Message}");
+                Console.WriteLine($"Error opening UDP socket: {ex.Message}");
             }
         }
 
@@ -116,13 +120,17 @@ namespace DER_Generator
             {
                 _sensorListener = new TcpListener(IPAddress.Any, _localPortSensorTcp);
                 _sensorListener.Start();
-                Console.WriteLine($"TCP socket opened on port {_localPortSensorTcp} for sensor data!");
+                string localIP =GetLocalIPAddress();
+                Console.WriteLine("\n[TCP Sensor Socket]");
+                Console.WriteLine($"- Sensor socket opened.");
+                Console.WriteLine($"- Address: {localIP}");
+                Console.WriteLine($"- Port: {_localPortSensorTcp}\n");
 
                 //osluskuj senzorske podatke
                 while (true)
                 {
                     TcpClient sensorClient = _sensorListener.AcceptTcpClient();
-                    Console.WriteLine("Connected sensor!");
+                    Console.WriteLine("Sensor connected!");
 
 
                     HandleSensorData(sensorClient);
@@ -138,22 +146,104 @@ namespace DER_Generator
         {
             NetworkStream stream = sensorClient.GetStream();
             byte[] buffer = new byte[1024];
-
             try
             {
+                // Čitanje podataka od senzora
                 int bytesRead = stream.Read(buffer, 0, buffer.Length);
-                string sensorData = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                Console.WriteLine($"Recivied data from sensor: {sensorData}");
+                string sensorMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead).Replace("\0", "").Trim();
+
+                // Prvo proveriti "CheckGeneratorType"
+                if (sensorMessage == "CheckGeneratorType")
+                {
+                    // Odgovor senzoru o tipu generatora
+                    string response = _generatorType;
+                    byte[] responseBytes = Encoding.UTF8.GetBytes(response);
+                    stream.Write(responseBytes, 0, responseBytes.Length);
+                    Console.WriteLine("Senzor uspešno povezan. Poslat odgovor.");
+
+                    // Čitanje sledeće poruke koja sadrži podatke o insolation i temperaturi
+                    bytesRead = stream.Read(buffer, 0, buffer.Length);
+                    sensorMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead).Replace("\0", "").Trim();
+                }
+
+                // Nezavisno od toga, obraditi podatke za generatore
+                if (_generatorType == "SolarPanel")
+                {
+                    // Obrada podataka senzora za Solar Panel
+                    string[] dataParts = sensorMessage.Split(',');
+                    if (dataParts.Length == 2 &&
+                        dataParts[0].StartsWith("INS:") &&
+                        dataParts[1].StartsWith("Tcell:"))
+                    {
+                        double insolation = double.Parse(dataParts[0].Split(':')[1]);
+                        double temperature = double.Parse(dataParts[1].Split(':')[1]);
+
+                        // Izračunavanje aktivne snage
+                        double activePower = CalculateActivePower(insolation, temperature);
+                        
+                        // Slanje podataka serveru
+                        SendPowerDataToServer(activePower, 0); // Reaktivna snaga je 0
+
+                        Console.WriteLine($"Primljeni podaci od senzora: Insolacija={insolation}, Temperatura={temperature}");
+                        Console.WriteLine($"Izračunata aktivna snaga: {activePower:F2} kW");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Nepoznata poruka senzora: {sensorMessage}");
+                    }
+                }
+                else if (_generatorType == "WindTurbine")
+                {
+                    // Obrada podataka senzora za Wind Turbine (ako je tip generatora WindTurbine)
+                    // Možete dodati odgovarajući kod za WindTurbine ako je potrebno
+                    Console.WriteLine($"Podaci za Wind Turbine nisu implementirani.");
+                }
+                else
+                {
+                    Console.WriteLine($"Primljeni podaci za generator tipa {_generatorType} nisu podržani.");
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error in communication with sensor: {ex.Message}");
+                Console.WriteLine($"Greška u komunikaciji sa senzorom: {ex.Message}");
             }
-            finally 
+        }
+        private double CalculateActivePower(double insolation, double temperature)
+        {
+            return _nominalPower * insolation * 0.00095 * (1 - 0.005 * (temperature - 25));
+        }
+        private void SendPowerDataToServer(double activePower, double reactivePower)
+        {
+            try
             {
-                sensorClient.Close();
-
+                if (_tcpClient != null && _tcpClient.Connected)
+                {
+                    string message = $"Izracunata aktivna snaga poslata serveru: {activePower:F2} izmerena {DateTime.Now}"; // Samo aktivna snaga
+                    byte[] messageBytes = Encoding.UTF8.GetBytes(message);
+                    _tcpClient.GetStream().Write(messageBytes, 0, messageBytes.Length);
+                    Console.WriteLine($"Izracunata aktivna snaga poslata serveru: {activePower:F2} kW");
+                }
+                else
+                {
+                    Console.WriteLine("Greška: Nije moguće poslati podatke serveru jer veza nije uspostavljena.");
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Greška prilikom slanja podataka serveru: {ex.Message}");
+            }
+        }
+        private string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            return "127.0.0.1"; // Podrazumevana vrednost ako nije pronađena IPv4 adresa
         }
     }
 }

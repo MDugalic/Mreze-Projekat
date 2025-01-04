@@ -49,8 +49,8 @@ namespace DERMS_Server
             try
             {
                 int bytesRead = stream.Read(buffer, 0, buffer.Length);
-                string data = Encoding.UTF8.GetString(buffer, 0, buffer.Length);
-                Console.WriteLine($"Primljeni podaci od klijenta: {data}");
+                string data = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                Console.WriteLine($"Primljeni podaci od klijenta: \n{data}");
 
                 //odgovor klijenta
 

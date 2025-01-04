@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "DERMS Server\\DERMS Server.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "DER Generator\\DER Generator.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
