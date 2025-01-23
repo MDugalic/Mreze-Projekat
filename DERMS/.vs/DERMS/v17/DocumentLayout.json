@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\milan\\OneDrive\\Desktop\\Mreze\\DERMS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8114A13D-57B9-412E-8FD0-BFEBDB354914}|DERMS Server\\DERMS Server.csproj|C:\\Users\\milan\\OneDrive\\Desktop\\Mreze\\DERMS\\derms server\\dispatcherserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8114A13D-57B9-412E-8FD0-BFEBDB354914}|DERMS Server\\DERMS Server.csproj|solutionrelative:derms server\\dispatcherserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4A2B63A9-4C6E-4B92-B0F4-8221B49B8F66}|DER Generator\\DER Generator.csproj|c:\\users\\milan\\onedrive\\desktop\\mreze\\derms\\der generator\\dergenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A2B63A9-4C6E-4B92-B0F4-8221B49B8F66}|DER Generator\\DER Generator.csproj|solutionrelative:der generator\\dergenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B906749D-25D8-4BCC-96DE-38451D3B8743}|Sensor\\Sensor.csproj|C:\\Users\\milan\\OneDrive\\Desktop\\Mreze\\DERMS\\sensor\\solarweathersensor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B906749D-25D8-4BCC-96DE-38451D3B8743}|Sensor\\Sensor.csproj|solutionrelative:sensor\\solarweathersensor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8114A13D-57B9-412E-8FD0-BFEBDB354914}|DERMS Server\\DERMS Server.csproj|C:\\Users\\milan\\OneDrive\\Desktop\\Mreze\\DERMS\\derms server\\dispatcherserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8114A13D-57B9-412E-8FD0-BFEBDB354914}|DERMS Server\\DERMS Server.csproj|solutionrelative:derms server\\dispatcherserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8114A13D-57B9-412E-8FD0-BFEBDB354914}|DERMS Server\\DERMS Server.csproj|C:\\Users\\milan\\OneDrive\\Desktop\\Mreze\\DERMS\\derms server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,30 +34,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "DispatcherServer.cs",
               "DocumentMoniker": "C:\\Users\\milan\\OneDrive\\Desktop\\Mreze\\DERMS\\DERMS Server\\DispatcherServer.cs",
               "RelativeDocumentMoniker": "DERMS Server\\DispatcherServer.cs",
               "ToolTip": "C:\\Users\\milan\\OneDrive\\Desktop\\Mreze\\DERMS\\DERMS Server\\DispatcherServer.cs",
               "RelativeToolTip": "DERMS Server\\DispatcherServer.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwDUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAkwEIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T22:36:43.566Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DERGenerator.cs",
               "DocumentMoniker": "C:\\Users\\milan\\OneDrive\\Desktop\\Mreze\\DERMS\\DER Generator\\DERGenerator.cs",
               "RelativeDocumentMoniker": "DER Generator\\DERGenerator.cs",
               "ToolTip": "C:\\Users\\milan\\OneDrive\\Desktop\\Mreze\\DERMS\\DER Generator\\DERGenerator.cs",
               "RelativeToolTip": "DER Generator\\DERGenerator.cs",
-              "ViewState": "AgIAAMoAAAAAAAAAAADwv9wAAAB4AAAAAAAAAA==",
+              "ViewState": "AgIAANsAAAAAAAAAAAAwwPkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T13:45:13.431Z",
               "EditorCaption": ""
@@ -72,17 +72,18 @@
               "RelativeToolTip": "DERMS Server\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvxIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T22:35:37.038Z"
+              "WhenOpened": "2024-12-29T22:35:37.038Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SolarWeatherSensor.cs",
               "DocumentMoniker": "C:\\Users\\milan\\OneDrive\\Desktop\\Mreze\\DERMS\\Sensor\\SolarWeatherSensor.cs",
               "RelativeDocumentMoniker": "Sensor\\SolarWeatherSensor.cs",
               "ToolTip": "C:\\Users\\milan\\OneDrive\\Desktop\\Mreze\\DERMS\\Sensor\\SolarWeatherSensor.cs",
               "RelativeToolTip": "Sensor\\SolarWeatherSensor.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAqwC4AAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAC4AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T17:21:02.114Z",
               "EditorCaption": ""
