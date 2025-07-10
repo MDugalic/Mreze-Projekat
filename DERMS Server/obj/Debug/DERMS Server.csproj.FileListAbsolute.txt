@@ -1,0 +1,7 @@
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DERMS Server\bin\Debug\DERMS Server.exe.config
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DERMS Server\bin\Debug\DERMS Server.exe
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DERMS Server\bin\Debug\DERMS Server.pdb
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DERMS Server\obj\Debug\DERMS Server.csproj.AssemblyReference.cache
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DERMS Server\obj\Debug\DERMS Server.csproj.CoreCompileInputs.cache
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DERMS Server\obj\Debug\DERMS Server.exe
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DERMS Server\obj\Debug\DERMS Server.pdb

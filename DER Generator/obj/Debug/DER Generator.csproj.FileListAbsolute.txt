@@ -1,0 +1,7 @@
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DER Generator\bin\Debug\DER Generator.exe.config
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DER Generator\bin\Debug\DER Generator.exe
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DER Generator\bin\Debug\DER Generator.pdb
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DER Generator\obj\Debug\DER Generator.csproj.AssemblyReference.cache
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DER Generator\obj\Debug\DER Generator.csproj.CoreCompileInputs.cache
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DER Generator\obj\Debug\DER Generator.exe
+C:\Users\milan\OneDrive\Desktop\Mreze\DERMS\DER Generator\obj\Debug\DER Generator.pdb
